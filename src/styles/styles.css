@@ -1,0 +1,314 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    border:0;
+    
+}
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: Lato-light;
+    src: url(../fonts/Lato-Light.ttf);
+}
+body{
+    font-family: Lato;
+}
+.container{
+    height: 100vh;
+    
+    background-color: lightgrey;
+    padding:2rem;
+}
+.weather-container{
+   
+    width: 864px;
+    height: 642px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding:2rem;
+    gap:1rem;
+    
+}
+.input-element{
+    display: flex;
+}
+
+.input-element img , .controls img{
+    width: 17px;
+    height: 17px;
+}
+.input-element-container{
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+    align-items: center;
+}
+input:focus{
+    outline: none;
+}
+.error{
+    color:red;
+    display: inline;
+    font-size: 0.8rem;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.sidebar .main .mainImg{
+    width:100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+.sidebar .main .mainDegree{
+    font-size: 4rem;
+}
+input::placeholder{
+    font-family: Lato;
+    font-weight: 900;
+}
+.mainDegree .degree-div{
+    position: relative;
+}
+.main .mainDegree .degree-div .degree{
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 900;
+    top:0;
+    left:0;
+}
+.main .mainDegree .degree-div .degreeType{
+    position: absolute;
+    font-size: 3rem;
+    top:0;
+    left:20px;
+    
+}
+.mainDegree{
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+    
+}
+.mainDegree .text{
+    font-size: 1rem;
+}
+.number-container{
+    display: block;
+}
+.number-container.not-active{
+display: none;
+}
+
+.main-container{
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap:2rem;
+    justify-items: flex-start;
+}
+.main-container .header .selection{
+    display: flex;
+    gap:1rem;
+    align-items: first baseline;
+    justify-content: flex-start;
+}
+.selected{
+    text-decoration: underline 1px solid;
+    text-underline-offset: 10px;
+    color:black;
+
+}
+.unselected{
+    color:#d3d3d3
+}
+.unselected:hover , .selected:hover{
+    color:black;
+    transform: scale(1.1);
+}
+.loading{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color: black;
+    z-index: 1;
+    opacity: 1;
+    display: none;
+    
+}
+.loading.active{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-container{
+    overflow: hidden;
+    width:534px;
+
+}
+.slide{
+    
+    justify-content: space-between;
+    flex-shrink: 0;
+    
+    
+
+}
+.slides{
+    display: flex;
+    color:white;
+    transition: transform 1s ease-in-out
+
+}
+.slides.turn-0{
+    transform: translateX(0);
+}
+.slides.turn-1{
+    transform: translateX(-534px);
+}
+.slides.turn-2{
+    transform: translateX(-1068px);
+}
+.slides div[class^=div]{
+    display: flex;
+    gap:10px;
+}
+.carousel{
+    display: flex;
+    flex-flow: column nowrap;
+    
+    align-items: center;
+}
+
+.points-container{
+    display: inline-flex;
+    gap:5px;
+    align-items: center;
+    position: relative;
+}
+
+.points:hover{
+    transform:scale(1.1)
+}
+.points{
+    width:15px;
+    height: 15px;
+    background-color:#d3d3d3;
+    border-radius: 15px ;
+}
+
+.moving-points{
+    position: absolute;
+    width:15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: black;
+    transition: transform 0.5s ease-in-out;
+}
+.moving-points.turn-0{
+    transform: translateX(0px);
+}
+.moving-points.turn-1{
+    transform: translateX(20px);
+}
+.moving-points.turn-0:hover{
+    transform: translateY(-20px);
+    
+}
+.moving-points.turn-1:hover{
+    transform: translate(20px , -20px);
+    
+    
+}
+.moving-points.turn-2:hover{
+    transform: translate(40px , -20px);
+    
+    
+}
+.moving-points.turn-2{
+    transform: translateX(40px);
+}
+
+
+.slide-content{
+   display: flex;
+   flex-direction: column;
+    color:black;
+}
+.slide-content img{
+    width:58px;
+    height: 58px;
+}
+
+.slide-content .degreeDiv{
+    position: relative;
+}
+.weather .degree{
+    position: absolute;
+    top: -5px;
+    left:0px;
+}
+.weather .degreeType{
+    position: absolute;
+    left:10px;
+}
+input.invalid{
+    border-bottom: 1px solid red;
+}
+.city-container{
+    margin-top:2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.cityName{
+    font-size: 2rem;
+    align-self: center;
+    position: relative;
+}
+.countryName{
+   position: absolute;
+   font-size: 1rem;
+   
+
+}
+.information-container{
+    display: grid;
+    grid-template:max-content max-content / 1fr 1fr;
+    width:100%;
+    gap:1rem;
+
+}
+.information-container img{
+    width:64px;
+    height: 64px;
+}
+.information-container .info-div{
+background-color: #e0e0e0;
+border-radius: 10px;
+padding:1rem;
+overflow: hidden;
+height: 80px;
+max-height: 100px;
+transition:max-height 1s ease-in-out ;
+}
+
+.information-container .info-div:hover{
+    max-height: 500px;
+    height: auto;
+    
+
+}
