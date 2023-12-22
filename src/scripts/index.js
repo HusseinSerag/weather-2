@@ -88,7 +88,11 @@ selection[0].classList.remove('unselected')
     DOM.RenderToday(data)
     populateSlides(slides,data)
     DOM.setCity(data)
-     renderQuote()
+    await Promise.all([MyApp.getQuoteApi('life'),MyApp.getQuoteApi('life'),MyApp.getQuoteApi('life'),MyApp.getQuoteApi('life')]).then(info=>{
+        for(let i = 0 ; i < texts.length ; i++){
+            texts[i].textContent = info[i].quote
+        }
+    })
     DOM.unload()
     
     
